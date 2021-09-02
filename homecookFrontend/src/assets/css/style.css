@@ -1,0 +1,84 @@
+
+.dropzone .dz-preview .dz-progress {
+  display: none;
+}
+.innerAuth {
+  padding-bottom: 24px;
+  padding-top: 10px;
+  align-items: center;
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+  margin-top: 40px;
+  margin: auto;
+  width: 400px;
+}
+
+.loginTitle {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  font-weight: 400;
+  letter-spacing: -.05em;
+  line-height: 20px;
+  margin: 10px 0 30px;
+}
+
+.loginTitle:before {
+  background: #7e7e7e;
+  left: 0;
+}
+
+.loginTitle:after {
+  background: #7e7e7e;
+  right: 0;
+}
+
+.loginTitle:after, .loginTitle:before {
+  content: "";
+  height: 1px;
+  position: absolute;
+  top: 10px;
+  width: 20%;
+}
+
+.innerContainer{
+  padding-top: 100px;
+}
+
+.imgPersonalized {
+  border-radius: 20px !important;
+}
+
+.avatarPersonalized {
+  border-radius: 150px !important;
+}
+
+.title-home {
+  text-align: center;
+  color: #585252;
+  letter-spacing: 5px;
+}
+
+.error-output {
+  color: #ff5252;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-left: 12px;
+}
+
+.helper-msg-form {
+  font-size: 10px;
+  margin-top: -20px;
+}
+
+.helper-msg {
+  font-size: 10px;
+}
+
+.btn-confirm-color {
+  background: #a59d96 !important;
+  color: white !important;
+}
