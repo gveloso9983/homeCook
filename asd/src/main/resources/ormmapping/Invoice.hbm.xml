@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: diogoferreira(Universidade do Minho)
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.example.homecookBackend.classes.invoice.Invoice" table="Invoice" lazy="false">
+		<id name="id" column="Id" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<many-to-one name="address" cascade="lock" column="AddressId" class="com.example.homecookBackend.classes.address.Address" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<property name="total" column="Total" type="float" not-null="true" lazy="false"/>
+		<property name="date" column="`Date`" type="date" not-null="false" lazy="false"/>
+		<property name="deliveryDate" column="DeliveryDate" type="date" not-null="false" lazy="false"/>
+		<set name="ORM_Invoice_lines" lazy="true" cascade="save-update,lock" inverse="false">
+			<key column="InvoiceId" not-null="true"/>
+			<one-to-many class="com.example.homecookBackend.classes.invoice_line.Invoice_line"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: diogoferreira(Universidade do Minho)
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.example.homecookBackend.classes.baker.Baker" table="Baker" lazy="false">
+        <id name="id" column="Id" type="integer" unsaved-value="0">
+            <generator class="native">
+            </generator>
+        </id>
+        <property name="email" column="Email" type="string" length="255" not-null="false" lazy="false"/>
+        <property name="firstName" column="FirstName" type="string" length="255" not-null="false" lazy="false"/>
+        <property name="lastName" column="LastName" type="string" length="255" not-null="false" lazy="false"/>
+        <property name="phoneNumber" column="PhoneNumber" type="string" length="255" not-null="false" lazy="false"/>
+        <property name="birthDate" column="BirthDate" type="date" not-null="false" lazy="false"/>
+        <property name="password" column="Password" type="string" length="255" not-null="false" lazy="false"/>
+        <set name="ORM_Orders" lazy="true" cascade="save-update,lock" inverse="false">
+            <key column="BakerId" not-null="true"/>
+            <one-to-many class="com.example.homecookBackend.classes.invoice_line.Invoice_line"/>
+        </set>
+        <set name="ORM_Products" lazy="true" cascade="save-update,lock" inverse="true">
+            <key column="BakerId" not-null="true"/>
+            <one-to-many class="com.example.homecookBackend.classes.product.Product"/>
+        </set>
+    </class>
+</hibernate-mapping>

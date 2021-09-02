@@ -1,0 +1,21 @@
+/* PASSOS:
+1 - DDL
+2 - Client
+3 - Baker
+4 - Category
+5 - Product
+6 - Image
+7 - Comment
+8 - Address
+9 - Invoice
+10 - Invoice_Line
+----- Inserir um Client e DEPOIS um Baker à mão -----
+----- Realizar os seguintes Updates -----
+update Product
+set BakerId = 202
+where Id > 30 and Id < 60
+
+update Invoice
+set ClientId = 201
+where Id > 30 and Id < 60
+*/

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: diogoferreira(Universidade do Minho)
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.example.homecookBackend.classes.invoice_line.Invoice_line" table="Invoice_line" lazy="false">
+		<id name="id" column="Id" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<many-to-one name="invoice" cascade="lock" column="InvoiceId" class="com.example.homecookBackend.classes.invoice.Invoice" insert="false" update="false" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<many-to-one name="product" cascade="lock" column="ProductId" class="com.example.homecookBackend.classes.product.Product" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<property name="quantity" column="Quantity" type="integer" length="10" not-null="true" lazy="false"/>
+		<property name="done" column="Done" type="boolean" length="1" not-null="true" lazy="false"/>
+	</class>
+</hibernate-mapping>

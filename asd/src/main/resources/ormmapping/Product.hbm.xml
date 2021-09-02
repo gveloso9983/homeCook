@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: diogoferreira(Universidade do Minho)
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.example.homecookBackend.classes.product.Product" table="Product" lazy="false">
+		<id name="id" column="Id" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<many-to-one name="category" cascade="lock" column="CategoryId" class="com.example.homecookBackend.classes.category.Category" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<many-to-one name="baker" cascade="lock" column="BakerId" class="com.example.homecookBackend.classes.baker.Baker" not-null="true" lazy="proxy" access="field">
+		</many-to-one>
+		<property name="name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="ingredients" column="Ingredients" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="price" column="Price" type="float" not-null="true" lazy="false"/>
+		<property name="weight" column="Weight" type="float" not-null="true" lazy="false"/>
+		<property name="rating" column="Rating" type="float" not-null="true" lazy="false"/>
+		<property name="number_ratings" column="Number_ratings" type="integer" length="10" not-null="true" lazy="false"/>
+		<property name="onSale" column="OnSale" type="boolean" length="1" not-null="true" lazy="false"/>
+		<set name="ORM_Comments" lazy="true" cascade="save-update,lock" inverse="false">
+			<key column="ProductId" not-null="true"/>
+			<one-to-many class="com.example.homecookBackend.classes.comment.Comment"/>
+		</set>
+		<set name="ORM_Images" lazy="true" cascade="save-update,lock" inverse="false">
+			<key column="ProductId" not-null="true"/>
+			<one-to-many class="com.example.homecookBackend.classes.image.Image"/>
+		</set>
+	</class>
+</hibernate-mapping>
